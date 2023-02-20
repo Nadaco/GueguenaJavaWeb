@@ -268,6 +268,19 @@
  * @author hb
  * @author hb
  * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
+ * @author hb
  */
 
 /**
@@ -347,6 +360,7 @@ public class Controleur extends HttpServlet {
             AW.addModule(WEB);
             AW.addModule(BDD);
             AW.addModule(JAVA);
+
 
             // Creation des notes
             Note note1 = NoteDAO.create(etu1, 10, JAVA);
@@ -451,10 +465,8 @@ public class Controleur extends HttpServlet {
         // Supression de l'étudiant si le formulaire de suppression a été rempli (bouton supprimer)
         if (request.getParameter("delete") != null) {
 
-            System.out.println("delete");
             String delete = request.getParameter("delete");
             if (delete.equals("true")) {
-                System.out.println("delete2");
                 int idEtudiant = Integer.valueOf(request.getParameter("idEtudiant"));
                 EtudiantDAO.remove(idEtudiant);
             }
@@ -517,14 +529,34 @@ public class Controleur extends HttpServlet {
 
         }
 
+        // Ajout du module au groupe si le formulaire a été rempli
+        if (request.getParameter("idModule") != null) {
+            // Récupère les paramètres du formulaire
+            int idGroupe = Integer.valueOf(request.getParameter("idGroupe"));
+            int idModule = Integer.valueOf(request.getParameter("idModule"));
+
+            // Récupération du groupe
+            Groupe groupe = GroupeDAO.getById(idGroupe);
+            // Récupération du module
+            Module module = ModuleDAO.getById(idModule);
+
+            // Ajout du module au groupe
+            groupe.addModule(module);
+        }
+
         // Récupérer les groupes
         List<Groupe> groupes = GroupeDAO.getAll();
+        // Récupérer les modules
+        List<Module> modules = ModuleDAO.getAll();
 
         // Récupérer le nombre total d'étudiant
         int nbTotalEtudiant = EtudiantDAO.getNbEtudiant();
 
         // Ajouter les groupes à la requête pour affichage
         request.setAttribute("groupes", groupes);
+
+        // Ajouter les modules à la requête
+        request.setAttribute("modules", modules);
 
         // Ajouter le nombre d'étudiant à ma requête pour affichage
         request.setAttribute("nbTotalEtudiant", nbTotalEtudiant);
@@ -543,6 +575,19 @@ public class Controleur extends HttpServlet {
             // Création du Module
             ModuleDAO.create(nom, coef);
 
+        }
+
+        if (request.getParameter("coef") != null) {
+            // Récupère les paramètres du formulaire
+            int idModule = Integer.valueOf(request.getParameter("idModule"));
+            int coef = Integer.valueOf(request.getParameter("coef"));
+
+            // Récupération du module
+            Module module = ModuleDAO.getById(idModule);
+
+            // Modification du coefficient
+            module.setCoefficient(coef);
+            ModuleDAO.update(module);
         }
 
         // Récupérer les modules

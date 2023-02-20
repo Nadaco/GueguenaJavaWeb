@@ -62,8 +62,17 @@ public class Groupe implements Serializable {
         module.getGroupes().add(this);
         this.modules.add(module);
         GroupeDAO.update(this);
+        ModuleDAO.update(module);
     }
 
+    public Module getModuleById(int id) {
+        for (Module module : this.modules) {
+            if (module.getId() == id) {
+                return module;
+            }
+        }
+        return null;
+    }
 
     @Override
     public boolean equals(Object o) {

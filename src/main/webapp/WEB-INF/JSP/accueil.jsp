@@ -14,7 +14,7 @@
 <jsp:include page="commun/menu.jsp"/>
 <!-- tableau de groupes  -->
 <h1>Affichages des Groupes</h1>
-<table>
+<table border=1 class="text-center">
     <thead>
     <tr>
         <th>Nom du groupe</th>

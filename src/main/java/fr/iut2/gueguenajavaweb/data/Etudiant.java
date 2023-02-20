@@ -22,9 +22,7 @@ public class Etudiant implements Serializable {
     private String nom;
 
     private int nbAbsences;
-
-    private float moyenne;
-
+    
     @ManyToOne
     private Groupe groupe;
 

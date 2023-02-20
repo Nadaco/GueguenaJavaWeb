@@ -27,6 +27,7 @@
     <tr>
         <th>Nom du Module</th>
         <th>Coef</th>
+        <th>Modifier le coef</th>
     </tr>
 
 
@@ -38,6 +39,13 @@
         </td>
         <td>
             <%=module.getCoefficient()%>
+        </td>
+        <td>
+            <form action="<%= application.getContextPath()%>/do/gestionmodules" method="post">
+                <input id="coef<%=module.getId()%>" type="number" name="coef" step="1" min=1 required/>
+                <input type="hidden" name="idModule" value="<%=module.getId()%>"/>
+                <input type="submit" name="action" value="Modifier"/>
+            </form>
         </td>
     </tr>
     <% } %>

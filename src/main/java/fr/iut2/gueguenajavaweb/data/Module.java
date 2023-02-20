@@ -68,6 +68,7 @@ public class Module implements Serializable {
         groupe.addModule(this);
         this.groupes.add(groupe);
         ModuleDAO.update(this);
+        GroupeDAO.update(groupe);
     }
 
     public void removeGroupe(Groupe groupe) {
