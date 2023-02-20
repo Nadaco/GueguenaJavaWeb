@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <!-- Titre de l'application -->
+    <context-param>
+        <param-name>title</param-name>
+        <param-value>Gestion des notes et absences</param-value>
+    </context-param>
+
+    <!-- URLs communes aux vues -->
+    <context-param>
+        <param-name>menu</param-name>
+        <param-value>/WEB-INF/JSP/commun/menu.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pieddepage</param-name>
+        <param-value>/WEB-INF/JSP/commun/pieddepage.jsp</param-value>
+    </context-param>
+
+
+    <!--========= Projet Etape 3 MVC =========== -->
+    <!-- Servlet controleur -->
+    <servlet>
+        <servlet-name>controleur</servlet-name>
+        <servlet-class>fr.iut2.gueguenajavaweb.controleur.Controleur</servlet-class>
+        <init-param>
+            <param-name>urlAccueil</param-name>
+            <param-value>/WEB-INF/JSP/accueil.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlGestionEtudiants</param-name>
+            <param-value>/WEB-INF/JSP/gestionEtudiants.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlGestionGroupes</param-name>
+            <param-value>/WEB-INF/JSP/gestionGroupes.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlGestionModules</param-name>
+            <param-value>/WEB-INF/JSP/gestionModules.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlFicheEtudiant</param-name>
+            <param-value>/WEB-INF/JSP/ficheEtudiant.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlEditionNotesEtudiants</param-name>
+            <param-value>/WEB-INF/JSP/editionNotesEtudiants.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlNotesEtudiants</param-name>
+            <param-value>/WEB-INF/JSP/notesEtudiants.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlEditionAbsencesEtudiants</param-name>
+            <param-value>/WEB-INF/JSP/editionAbsencesEtudiants.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlAbsencesEtudiants</param-name>
+            <param-value>/WEB-INF/JSP/absencesEtudiants.jsp</param-value>
+        </init-param>
+    </servlet>
+
+    <!-- Mapping URL/Servlet -->
+    <servlet-mapping>
+        <servlet-name>controleur</servlet-name>
+        <url-pattern>/do/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- fichiers d'accueil -->
+    <welcome-file-list>
+        <welcome-file>do</welcome-file>
+    </welcome-file-list>
+
+</web-app>

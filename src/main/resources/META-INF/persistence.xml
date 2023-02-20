@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <!-- Unité de persistence charger à la création de la factory - voir GestionFactory -->
+    <persistence-unit name="Gueguena_Java_Web_SQLITE" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Provider implémentant le standard JPA - dans notre cas EclipseLink -->
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <!-- Classes persistées - liées à tes tables de la base de données -->
+        <class>fr.iut2.gueguenajavaweb.data.Etudiant</class>
+        <class>fr.iut2.gueguenajavaweb.data.Groupe</class>
+        <class>fr.iut2.gueguenajavaweb.data.Module</class>
+        <class>fr.iut2.gueguenajavaweb.data.Note</class>
+
+        <!-- Propriétés de l'unité de persistence -->
+        <properties>
+
+            <!-- JDBC connection properties -->
+            <!--  en SqlLite, sur un fichier de votre arborescence (en windows c:/etc...) -->
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:sqlite:/home/axel/Documents/JAVA WEB/base-de-donnee/ProjetJPA.sql"/>
+            <property name="javax.persistence.jdbc.user" value=""/>
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+
+            <!-- Propriétés propre à EclipseLink -->
+            <!-- EclipseLink should create the database schema automatically -->
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.target-database" value="auto"/>
+            <property name="eclipselink.ddl-generation.index-foreign-keys" value="false"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+            <property name="eclipselink.application-location" value="/home/axel/Documents/JAVA WEB/base-de-donnee/"/>
+            <!-- Disable EclipseLink cache - certains enregistrement n'était pas mis à jour en BD -->
+            <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.cache.type.default" value="NONE"/>
+
+        </properties>
+    </persistence-unit>
+
+
+    <!-- Unité de persistence charger à la création de la factory - voir GestionFactory -->
+    <persistence-unit name="Gueguena_Java_Web_MYSQL" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Provider implémentant le standard JPA - dans notre cas EclipseLink -->
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <!-- Classes persistées - liées à tes tables de la base de données -->
+        <class>fr.iut2.gueguenajavaweb.data.Etudiant</class>
+        <class>fr.iut2.gueguenajavaweb.data.Groupe</class>
+        <class>fr.iut2.gueguenajavaweb.data.Module</class>
+        <class>fr.iut2.gueguenajavaweb.data.Note</class>
+
+        <!-- Propriétés de l'unité de persistence -->
+        <properties>
+
+            <!-- JDBC connection properties -->
+            <!-- url pointant : -->
+            <!--  en MySql, sur une url du serveur par exemple en local localhost:3306 -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/iut2_projetjpa"/>
+            <property name="javax.persistence.jdbc.user" value="projetjpa"/>
+            <property name="javax.persistence.jdbc.password" value="X3YEbHqrWx5648NW"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <!--property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/-->
+
+            <!-- Propriétés propre à EclipseLink -->
+            <!-- EclipseLink should create the database schema automatically -->
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <!-- Disable EclipseLink cache - certains enregistrement n'était pas mis à jour en BD -->
+            <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.cache.type.default" value="NONE"/>
+
+        </properties>
+    </persistence-unit>
+
+
+    <!-- Unité de persistence charger à la création de la factory - voir GestionFactory -->
+    <persistence-unit name="Gueguena_Java_Web_MYSQL_DIST" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Provider implémentant le standard JPA - dans notre cas EclipseLink -->
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <!-- Classes persistées - liées à tes tables de la base de données -->
+        <class>fr.iut2.gueguenajavaweb.data.Etudiant</class>
+        <class>fr.iut2.gueguenajavaweb.data.Groupe</class>
+        <class>fr.iut2.gueguenajavaweb.data.Module</class>
+        <class>fr.iut2.gueguenajavaweb.data.Note</class>
+
+
+        <!-- Propriétés de l'unité de persistence -->
+        <properties>
+
+            <!-- JDBC connection properties -->
+            <!-- url pointant : -->
+            <!--  en MySql, sur une url du serveur par exemple en local localhost:3306 -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/etudiant85"/>
+            <property name="javax.persistence.jdbc.user" value="etudiant85"/>
+            <property name="javax.persistence.jdbc.password" value="(jalmmi4)"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Propriétés propre à EclipseLink -->
+            <!-- EclipseLink should create the database schema automatically -->
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <!-- Disable EclipseLink cache - certains enregistrement n'était pas mis à jour en BD -->
+            <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.cache.type.default" value="NONE"/>
+
+        </properties>
+    </persistence-unit>
+
+    <!-- Unité de persistence charger à la création de la factory - voir GestionFactory -->
+    <persistence-unit name="Gueguena_Java_Web_MYSQL_DIST2" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Provider implémentant le standard JPA - dans notre cas EclipseLink -->
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <!-- Classes persistées - liées à tes tables de la base de données -->
+        <class>fr.iut2.gueguenajavaweb.data.Etudiant</class>
+        <class>fr.iut2.gueguenajavaweb.data.Groupe</class>
+        <class>fr.iut2.gueguenajavaweb.data.Module</class>
+        <class>fr.iut2.gueguenajavaweb.data.Note</class>
+
+        <!-- Propriétés de l'unité de persistence -->
+        <properties>
+
+            <!-- JDBC connection properties -->
+            <!-- url pointant : -->
+            <!--  en MySql, sur une url du serveur par exemple en local localhost:3306 -->
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://ellsworth.iut2.upmf-grenoble.fr:3306/etudiant85"/>
+            <property name="javax.persistence.jdbc.user" value="etudiant85"/>
+            <property name="javax.persistence.jdbc.password" value="(jalmmi4)"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Propriétés propre à EclipseLink -->
+            <!-- EclipseLink should create the database schema automatically -->
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <!-- Disable EclipseLink cache - certains enregistrement n'était pas mis à jour en BD -->
+            <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.cache.type.default" value="NONE"/>
+
+        </properties>
+    </persistence-unit>
+
+</persistence>
